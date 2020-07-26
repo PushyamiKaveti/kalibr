@@ -8,8 +8,10 @@ find_package(Eigen REQUIRED)
 
 catkin_python_setup()
 
+find_package(PythonLibs REQUIRED)
+set(PYTHON_INCLUDE_DIRS ${PYTHON_INCLUDE_DIRS} /usr/local/lib/python2.7/dist-packages/numpy/core/include)
 add_definitions(${EIGEN_DEFINITIONS})
-include_directories(include ${Eigen_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
+include_directories(include ${Eigen_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS}  /usr/include/python2.7/)
 include_directories("${PROJECT_SOURCE_DIR}/include/numpy_eigen")
 
 catkin_package(
